@@ -1,7 +1,16 @@
-// import other models here
+const User = require('./user');
+const Location = require('./location');
 
-// make associations here
+User.hasMany(Location, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+});
+
+Location.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+});
 
 module.exports = {
-    // export here
+    User, Location
 };
