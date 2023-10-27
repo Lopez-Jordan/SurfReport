@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const loginRoutes = require('./login');
-// const locationRoutes = require('./locations');
+// const locationRoutes = require('./locations');   // still need to import
 
 router.use(loginRoutes);
-router.use('/locations', locationRoutes);
+// router.use('/locations', locationRoutes);
 
 module.exports = router;
 
