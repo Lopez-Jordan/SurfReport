@@ -31,6 +31,27 @@ router.post('/signup', async (req, res) => {
 
 // post /login
     // allow login
+router.post('/login', async (req,res) =>{
+    try {
+        let existingUser = await User.findOne({
+            where : {
+                name : req.body.name
+            }
+        });
+        if (!existingUser){
+            res.status(200).json({message: 'no user found with that name :/'});
+            return;
+        }
+        let valid = await existingUser.checkPassword(req.body.password);
+        if (valid){
+            res.status(200).json(existingUser);
+        } else {
+            res.status(400).json({message: 'incorrect password'});
+        }
+    } catch (error){
+        res.status(500).json(error);
+    }
+});
 
 // post /logout
     // allow logout
