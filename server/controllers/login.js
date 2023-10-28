@@ -30,7 +30,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // post /login
-    // allow login
+// allow login
 router.post('/login', async (req,res) =>{
     try {
         let existingUser = await User.findOne({
@@ -44,7 +44,11 @@ router.post('/login', async (req,res) =>{
         }
         let valid = await existingUser.checkPassword(req.body.password);
         if (valid){
-            res.status(200).json(existingUser);
+            req.session.save(() => {
+                req.session.UserId = existingUser.id;
+                req.session.loggedIn = true;
+                res.status(200).json({ user: existingUser});
+              });
         } else {
             res.status(400).json({message: 'incorrect password'});
         }
@@ -54,7 +58,8 @@ router.post('/login', async (req,res) =>{
 });
 
 // post /logout
-    // allow logout
+// allow logout
+
 
 
 
