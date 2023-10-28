@@ -73,5 +73,22 @@ router.post('/locations', async (req, res) => {
 
 // delete /locations/:locationId
     // Allows a user to delete an existing location associated with their account. (Send the user ID through the req.body)
+router.delete('/locations/:id', async (req, res) => {
+    try {
+        let deletedLocation = await Location.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        if (deletedLocation) {
+            res.status(200).json({message : 'successful deletion'});
+        } else {
+            res.status(404).json({ message: 'No location found to delete :/' });
+        }
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+    
 
 module.exports = router;
