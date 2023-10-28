@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');      // CHECK IF IT WORKS
+const { User } = require('../models');
 
 // post /signup
 // allow creation of an account
@@ -59,7 +59,25 @@ router.post('/login', async (req,res) =>{
 
 // post /logout
 // allow logout
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
 
+router.post('/logout', async (req,res)=>{
+    if (req.session.loggedIn){
+        req.session.destroy(() => {
+            res.status(204).end();
+        })
+    } else {
+        res.status(404).end();
+    }
+});
 
 
 
