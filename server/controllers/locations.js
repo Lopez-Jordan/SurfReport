@@ -23,8 +23,54 @@ router.get('/locations', async (req,res)=> {
 
 // post /locations
     // Allows a user to create a new location associated with their account. (Send the user ID through the req.body)
+router.post('/locations', async (req, res) => {
+    try{
+        let userId = req.session.UserId;
+        let newLocation = await Location.create({
+            title : req.body.title,
+            description : req.body.description,
+            stars : req.body.stars,
+            lat : req.body.lat,
+            long : req.body.long,
+            userId : userId
+        })
+        res.status(200).json(newLocation );
+    } catch (error){
+        res.status(500).json({message : error});
+    }
+});
+
 // update /locations/:locationId 
     // Allows a user to update an existing location associated with their account. (Send the user ID through the req.body)
+    router.put('/locations/:id', async (req, res) => {
+        try {
+            const locationId = req.params.id;
+            const currLocation = await Location.findOne({
+                where: {
+                    id: locationId
+                }
+            });
+            if (!currLocation) {
+                return res.status(404).json({ message: 'Location not found' });
+            }
+            const locationUpdates = {};
+            if (req.body.title && req.body.title !== currLocation.title) {
+                locationUpdates.title = req.body.title;
+            }
+            if (req.body.description && req.body.description !== currLocation.description) {
+                locationUpdates.description = req.body.description;
+            }
+            if (req.body.stars && req.body.stars !== currLocation.stars) {
+                locationUpdates.stars = req.body.stars;
+            }
+            const updatedLocation = await currLocation.update(locationUpdates);
+            res.status(200).json(updatedLocation);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    });
+    
+
 // delete /locations/:locationId
     // Allows a user to delete an existing location associated with their account. (Send the user ID through the req.body)
 
