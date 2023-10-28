@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Location } = require('../models');
+const { Location } = require('../models');
 
 // get /locations
     // Retrieves all locations associated with a specific user.  (Send the user ID through the req.body)
@@ -70,7 +70,6 @@ router.post('/locations', async (req, res) => {
         }
     });
     
-
 // delete /locations/:locationId
     // Allows a user to delete an existing location associated with their account. (Send the user ID through the req.body)
 router.delete('/locations/:id', async (req, res) => {
@@ -89,6 +88,5 @@ router.delete('/locations/:id', async (req, res) => {
         res.status(500).json(error);
     }
 });
-    
 
 module.exports = router;
