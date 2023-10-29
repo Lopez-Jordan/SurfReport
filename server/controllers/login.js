@@ -1,6 +1,15 @@
 const router = require('express').Router();
 const { User } = require('../models');
 
+
+// route just to check if the user is logged in or not
+router.get('/login', async (req,res)=> {
+    if (req.session.loggedIn){
+        res.status(200).json({loggedIn : true})
+    } else {
+        res.status(200).json({loggedIn : false});
+    }
+});
 // post /signup
 // allow creation of an account
 router.post('/signup', async (req, res) => {
