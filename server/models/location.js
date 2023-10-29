@@ -44,7 +44,7 @@ Location.init(
           model: 'User',
           key: 'id',
         },
-      },
+    },
   },
   {
     sequelize,
