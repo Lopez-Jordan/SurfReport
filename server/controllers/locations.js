@@ -3,7 +3,7 @@ const { Location } = require('../models');
 
 // get /locations
     // Retrieves all locations associated with a specific user.  (Send the user ID through the req.body)
-router.get('/locations', async (req,res)=> {
+router.get('/api/locations', async (req,res)=> {
     try { 
         let userId = req.session.UserId;
         let locationData = await Location.findAll({
@@ -23,7 +23,7 @@ router.get('/locations', async (req,res)=> {
 
 // post /locations
     // Allows a user to create a new location associated with their account. (Send the user ID through the req.body)
-router.post('/locations', async (req, res) => {
+router.post('/api/locations', async (req, res) => {
     try{
         let userId = req.session.UserId;
         let newLocation = await Location.create({
@@ -42,7 +42,7 @@ router.post('/locations', async (req, res) => {
 
 // update /locations/:locationId 
     // Allows a user to update an existing location associated with their account. (Send the user ID through the req.body)
-    router.put('/locations/:id', async (req, res) => {
+    router.put('/api/locations/:id', async (req, res) => {
         try {
             const locationId = req.params.id;
             const currLocation = await Location.findOne({
@@ -72,7 +72,7 @@ router.post('/locations', async (req, res) => {
     
 // delete /locations/:locationId
     // Allows a user to delete an existing location associated with their account. (Send the user ID through the req.body)
-router.delete('/locations/:id', async (req, res) => {
+router.delete('/api/locations/:id', async (req, res) => {
     try {
         let deletedLocation = await Location.destroy({
             where: {

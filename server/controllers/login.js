@@ -3,16 +3,13 @@ const { User } = require('../models');
 
 
 // route just to check if the user is logged in or not
-router.get('/login', async (req,res)=> {
-    if (req.session.loggedIn){
-        res.status(200).json({loggedIn : true})
-    } else {
-        res.status(200).json({loggedIn : false});
-    }
+router.get('/api/login', async (req, res) => {
+    res.json({"message" : "hello"})
 });
+
 // post /signup
 // allow creation of an account
-router.post('/signup', async (req, res) => {
+router.post('/api/signup', async (req, res) => {
     try{
         // check for existing user
         let existingUser = await User.findOne({
@@ -40,7 +37,7 @@ router.post('/signup', async (req, res) => {
 
 // post /login
 // allow login
-router.post('/login', async (req,res) =>{
+router.post('/api/login', async (req,res) =>{
     try {
         let existingUser = await User.findOne({
             where : {
@@ -69,7 +66,7 @@ router.post('/login', async (req,res) =>{
 // post /logout
 // allow logout
 
-router.post('/logout', async (req,res)=>{
+router.post('/api/logout', async (req,res)=>{
     if (req.session.loggedIn){
         req.session.destroy(() => {
             res.status(204).end();
