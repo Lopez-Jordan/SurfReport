@@ -26,7 +26,7 @@ router.post('/api/signup', async (req, res) => {
             }
         });
         if (existingUser){
-            res.status(200).json({message: 'User already exists with that name'})
+            res.status(400).json({message: 'User already exists with that name'})
         } else {
             let newUser = await User.create({
                 name : req.body.name,
@@ -52,19 +52,20 @@ router.post('/api/login', async (req,res) =>{
                 name : req.body.name
             }
         });
-        if (!existingUser){
-            res.status(200).json({message: 'no user found with that name :/'});
+        if (!existingUser) {
+            res.status(400).json({ "error": 'No user found with that name.' });
             return;
         }
+        
         let valid = await existingUser.checkPassword(req.body.password);
-        if (valid){
+        if (valid) {
             req.session.save(() => {
                 req.session.UserId = existingUser.id;
                 req.session.loggedIn = true;
-                res.status(200).json({ user: existingUser});
-              });
+                res.status(200).json({ user: existingUser });
+            });
         } else {
-            res.status(400).json({message: 'incorrect password'});
+            res.status(400).json({ "error": 'Incorrect password.' });
         }
     } catch (error){
         res.status(500).json(error);

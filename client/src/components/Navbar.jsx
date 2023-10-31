@@ -1,33 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Link } from 'react-router-dom';
+import { LogInContext } from "../App";
 import './Navbar.css';
-import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
-    const [loggedIn, setLoggedIn] = useState(null);
 
-    useEffect(() => {
-        checkLogin();
-    }, []);
-
-    const checkLogin = async () => {
-        let response = await fetch('/api/login');
-        if (response.ok) {
-            const data = await response.json();
-            if (data.loggedIn == true){
-                console.log(data.loggedIn);
-                setLoggedIn(true);
-            } else {
-                console.log(data.loggedIn);
-
-                setLoggedIn(false);
-            }
-        }
-    };
+    const [loggedIn, setLoggedIn] = useContext(LogInContext);
 
     const handleLogout = async () => {
-        // make a post request to /api/logout
+        if (confirm('are you sure you want to logout?')){
+            let response = await fetch('/api/logout', {
+                method: 'POST'
+            });
+            if (response.ok){
+                setLoggedIn(false);
+                alert('you are now logged out!')
+            } else {
+                alert('something went wrong :( try again')
+            }
+        } else {
+            return false;
+        }
     }
-
 
     return (
         <>
@@ -43,7 +37,6 @@ export default function Navbar() {
                         <Link to='/login'>Login</Link>
                         <Link to='/signup'>Signup</Link>
                     </>
-
                 )}
             </div>
         </>
