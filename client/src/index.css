@@ -2,6 +2,20 @@
   margin: 0;
   padding: 0;
 }
+.mainLoginSignup {
+  padding: 10px 90px 10px 10px;
+  border: 2px solid black;
+  width: fit-content;
+  margin-left: 40%;
+  position: relative;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+.formLogin{
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width: 768px) {
 

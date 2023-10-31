@@ -5,23 +5,47 @@ import { Link, useLocation } from 'react-router-dom';
 export default function Navbar() {
     const [loggedIn, setLoggedIn] = useState(null);
 
-    const checkLogin = async () => {
-        let response = await fetch('/api/login');
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-        } else {
-            console.log('nope')
-        }
-    };
-
     useEffect(() => {
         checkLogin();
     }, []);
 
+    const checkLogin = async () => {
+        let response = await fetch('/api/login');
+        if (response.ok) {
+            const data = await response.json();
+            if (data.loggedIn == true){
+                console.log(data.loggedIn);
+                setLoggedIn(true);
+            } else {
+                console.log(data.loggedIn);
+
+                setLoggedIn(false);
+            }
+        }
+    };
+
+    const handleLogout = async () => {
+        // make a post request to /api/logout
+    }
+
+
     return (
-        <div>
-            <h1>navbar</h1>
-        </div>
+        <>
+            <div className="navbar">
+                {(loggedIn) ? (
+                    <>
+                        <Link to='/'>Home</Link>
+                        <button onClick={handleLogout}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <Link to='/'>Home</Link>
+                        <Link to='/login'>Login</Link>
+                        <Link to='/signup'>Signup</Link>
+                    </>
+
+                )}
+            </div>
+        </>
       );
 }

@@ -1,0 +1,11 @@
+.navbar{
+    background-color: beige;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar a{
+    padding: 5px;
+    background-color: rgb(255, 195, 215);
+    margin-right: 10px;
+}

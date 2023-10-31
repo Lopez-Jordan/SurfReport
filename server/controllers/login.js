@@ -4,7 +4,15 @@ const { User } = require('../models');
 
 // route just to check if the user is logged in or not
 router.get('/api/login', async (req, res) => {
-    res.json({"message" : "hello"})
+    try {
+        if (req.session.loggedIn){
+            res.status(200).json({loggedIn: true});
+        } else {
+            res.status(200).json({loggedIn: false});
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
 });
 
 // post /signup
