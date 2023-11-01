@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { LogInContext } from "../App";
+import './LoginSignup.css';
 
 
 export default function Signup() {
@@ -37,25 +38,36 @@ export default function Signup() {
     }
 
     return (
-        <div className="mainLoginSignup">
-            <h1>Signup</h1>
-            <h5>or... <Link to="/login">login</Link></h5> 
-            <form onSubmit={handleFormSubmit} className="formLogin">
-                <p>User name</p>
-                <input
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)} 
-                    type="text"
-                    placeholder="john"
-                />
-                <p>Password</p>
-                <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
-                    type="password"
-                />
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <>
+            <div className="twoCols">
+                <div className="left">
+                    <div className="loginForm">
+                        <h1>Create Account</h1>
+                        <form onSubmit={handleFormSubmit} className="form" action="">
+                            <input
+                                className="input"
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
+                                type="text"
+                                placeholder="Username"
+                            />
+                            <input
+                                className="input"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password"
+                                placeholder="Password"
+                            />
+                            <button className="loginButton" type="submit">
+                                Sign up
+                            </button>
+                        </form>
+                        <div className="or"> or... <Link to="/login">login</Link> </div>
+                    </div>
+                </div>
+                <div className="right">placeholder</div>
+            </div>
+        </>
+
     );
 }
