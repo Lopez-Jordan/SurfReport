@@ -30,8 +30,8 @@ export default function Secondary() {
                         <h3 className='headerSecondarySmall'>Know in advance</h3>
                         <h2 className='headerSecondary'>Find wind conditions and temperature!</h2>
                         <p className='paraSecondary'>Using the interactive map, Windy's api allows 
-                            anyone to monitor regional conditions of any geological location on earth. Need more 
-                            surf info before you head out? Scroll below and input your favorite locations to find
+                            anyone to monitor regional conditions of any geological location. Need more 
+                            surf-condition info before you head out? Scroll below and input your favorite locations to find
                             the surf height, swell period, etc.</p>
                     </div>
                 </div>

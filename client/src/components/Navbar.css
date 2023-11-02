@@ -20,7 +20,6 @@
     font-size: 16px;
     box-shadow: 3px 3px 0 black;
     border: none;
-
 }
 .navbar a:hover, .logout:hover{
     background-color: white;
@@ -31,4 +30,14 @@
 .FaHome{
     font-size: 20px;
     padding-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .navbar a, .logout {
+        font-size: 12px;
+    }
+    .FaHome{
+        font-size: 12px;
+        padding-top: 2px;
+    }
 }

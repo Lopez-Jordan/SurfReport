@@ -7,6 +7,27 @@
 *::selection {
   background-color: rgb(141, 255, 213); 
 }
+@keyframes fadeInLeft {
+  0% {
+      transform: translateX(-40px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+      transform: translateX(40px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
 
 @media (max-width: 768px) {
 
