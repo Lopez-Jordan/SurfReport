@@ -1,7 +1,6 @@
 .secondaryMain{
     height: 50vh;
     padding: 5%;
-
 }
 .container{
     display: flex;
@@ -14,7 +13,6 @@ h2{
     padding-left: 60px;
     padding-right: 90px;
     flex: 3;
-
 }
 .headerSecondarySmall{
     color: rgb(45, 189, 141);
@@ -31,11 +29,24 @@ h2{
     line-height: 1.8;
 }
 #windy {
-    height: 50vh;
-    width: 50%;
-    flex : 4;
+    min-height: 50vh; /* Set a minimum height */
+    width: 100%;
+    flex: 4;
+    position: relative;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: none !important;
 }
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
+    .container{
+        flex-direction: column-reverse;
+    }
+    .desc{
+        margin-bottom: 5%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
