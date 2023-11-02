@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LogInContext } from "../App";
 import { FaHome } from 'react-icons/fa';
 import './Navbar.css';
 
 export default function Navbar() {
+
+    const currPage = useLocation().pathname;
 
     const [loggedIn, setLoggedIn] = useContext(LogInContext);
 
@@ -32,7 +34,7 @@ export default function Navbar() {
                         <Link to='/'>
                             <FaHome className="FaHome"/>
                         </Link>
-                        <button onClick={handleLogout}>Logout</button>
+                        <button className="logout" onClick={handleLogout}>Logout</button>
                     </>
                 ) : (
                     <>

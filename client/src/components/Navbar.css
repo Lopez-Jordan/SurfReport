@@ -3,14 +3,14 @@
     padding: 30px;
     display: flex;
     justify-content: space-between; /* Use space-between to push elements to the left and right */
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 10;
     width: 90%;
     text-align: center;
 }
 
-.navbar a {
+.navbar a, .logout {
     padding: 6px;
     background-color: aquamarine;
     z-index: 100;
@@ -19,14 +19,16 @@
     color: black;
     font-size: 16px;
     box-shadow: 3px 3px 0 black;
-    border-radius: 5px;
+    border: none;
 
 }
-.navbar a:hover{
+.navbar a:hover, .logout:hover{
     background-color: white;
     box-shadow: 0px 0px 0 black;
+    cursor: pointer;
 }
 
 .FaHome{
     font-size: 20px;
+    padding-top: 2px;
 }

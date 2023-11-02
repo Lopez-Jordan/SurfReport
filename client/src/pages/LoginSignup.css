@@ -3,11 +3,6 @@
     position: relative;
     top: 8vh;
 }
-.right{
-    background-color: beige;
-    width: 50%;
-    height: 100vh;
-}
 .twoCols{
     display: flex;
 }
@@ -17,6 +12,13 @@
     align-items: center;
     justify-content: space-between;
     height: 35%;
+    margin-top: 20%;
+}
+.loginHeader{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: lighter;
 }
 .form{
     display: flex;
@@ -31,26 +33,77 @@
     border-bottom: 1.5px solid black;
     color: black;
     margin-bottom: 18px;
+    font-size: 18px;
 }
 .input:focus{
     outline: none;
-    border-bottom: 1.5px solid blue;
+    border-bottom: 1.5px solid aquamarine;
 }
 .input::placeholder{
     color: black;
-    font-size: 12px;
+    font-size: 16px;
 }
 .loginButton{
+    color: black;
+    font-size: 16px;
     width: 30%;
-    border: 1.5px solid black;
-    border-radius: 16px;    
     padding-top: 6px;
     padding-bottom: 6px;
+    background-color: aquamarine;
+    cursor: pointer;
+    border: 1.5px solid aquamarine;
+    box-shadow: 3px 3px 0 black;
+
+}
+.loginButton:hover{
+    box-shadow: none;
 }
 .or{
     font-weight: 100;
     font-size: 14px;
+}
+.or a{
+    color: rgb(45, 189, 141);
+    font-weight: 900;
+    padding-bottom: 5px;
 
 }
+.right{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
 
+.split {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 
+.surfImage {
+    width: 100%;
+    max-height: 100%; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container */
+}
+
+@media (max-width: 768px) {
+    .twoCols{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10%;
+    }
+    .right{
+        margin-top: 20%;
+    }
+    .or {
+        margin-top: 5%;
+    }
+    .left{
+        width: 80%;
+    }
+    .loginHeader{
+        margin-bottom: 10%;
+    }
+}

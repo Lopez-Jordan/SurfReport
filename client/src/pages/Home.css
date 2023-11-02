@@ -10,9 +10,10 @@
 .header{
     margin-left: 10%;
     margin-top: 5%;
-    font-size: 60px;
-    letter-spacing: 15px;
+    font-size: 70px;
+    letter-spacing: 20px;
     text-shadow: 4px 4px 0 black;
+    font-family: 'Bebas Neue', sans-serif;
 }
 .para{
     width: 20%;

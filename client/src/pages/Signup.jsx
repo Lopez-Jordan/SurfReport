@@ -42,7 +42,7 @@ export default function Signup() {
             <div className="twoCols">
                 <div className="left">
                     <div className="loginForm">
-                        <h1>Create Account</h1>
+                        <h1 className="loginHeader">Create Account</h1>
                         <form onSubmit={handleFormSubmit} className="form" action="">
                             <input
                                 className="input"
@@ -65,7 +65,17 @@ export default function Signup() {
                         <div className="or"> or... <Link to="/login">login</Link> </div>
                     </div>
                 </div>
-                <div className="right">placeholder</div>
+                <div className="right">
+                    <div className="split">
+                        <img src="/main.png" alt="surfing picture" className="surfImage"/>
+                        <img src="/surf.jpg" alt="surfing picture" className="surfImage" />
+                    </div>
+                    <div className="split">
+                        <img src="/dolphin.jpg" alt="surfing picture" className="surfImage" />
+                        <img src="/action.jpg" alt="surfing picture" className="surfImage" />
+                        <img src="/surfPicThree.jpg" alt="surfing picture" className="surfImage" />
+                    </div>
+                </div>
             </div>
         </>
 

@@ -2,7 +2,12 @@
   margin: 0;
   padding: 0;
   letter-spacing: 0.75px;
+  font-family: Montserrat;
 }
+*::selection {
+  background-color: rgb(141, 255, 213); 
+}
+
 @media (max-width: 768px) {
 
 }
