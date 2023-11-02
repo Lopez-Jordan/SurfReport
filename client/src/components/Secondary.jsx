@@ -9,26 +9,30 @@ export default function Secondary() {
             verbose: true,
             lat: 50.4,
             lon: 14.3,
-            zoom: 0,
+            zoom: -2,
         };
         
         windyInit(options, windyAPI => {
             const { map } = windyAPI;
             L.popup()
                 .setLatLng([50.4, 14.3])
-                .setContent(`interact for wind speed and temp!`)
+                .setContent(`interact here!`)
                 .openOn(map);
         });
-    },[]);
+    }, []);
 
     return (
         <>
             <div className="secondaryMain">
-                <h2>Find conditions before leaving your house!</h2>
                 <div className='container'>
                     <div id="windy"></div>
-                    <div id="video"
-                        <video tabindex="-1" id="anonymous-home-page-video-player_html5_api" class="vjs-tech" preload="auto" disablepictureinpicture="" loop="true" muted="muted" playsinline="playsinline" autoplay="autoplay" src="https://wa.cdn-surfline.com/kbyg/videos/surfline-cams-us-360p.mp4"></video>
+                    <div className='desc'>
+                        <h3 className='headerSecondarySmall'>Know in advance</h3>
+                        <h2 className='headerSecondary'>Find wind conditions and temperature!</h2>
+                        <p className='paraSecondary'>Using the interactive map, Windy's api allows 
+                            anyone to monitor regional conditions of any geological location on earth. Need more 
+                            surf info before you head out? Scroll below and input your favorite locations to find
+                            the surf height, swell period, etc.</p>
                     </div>
                 </div>
             </div>
