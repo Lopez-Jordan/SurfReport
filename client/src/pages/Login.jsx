@@ -55,11 +55,13 @@ export default function Login () {
                     <div className="split">
                         <img src="/main.png" alt="surfing picture" className="surfImage" />
                         <img src="/surf.jpg" alt="surfing picture" className="surfImage" />
+                        <img src="/random.jpg" alt="surfing picture" className="surfImage" />
                     </div>
                     <div className="split">
                         <img src="/dolphin.jpg" alt="surfing picture" className="surfImage" />
                         <img src="/action.jpg" alt="surfing picture" className="surfImage" />
                         <img src="/surfPicThree.jpg" alt="surfing picture" className="surfImage" />
+                        <img src="/random2.jpg" alt="surfing picture" className="surfImage" />
                     </div>
                 </div>
             </div>
