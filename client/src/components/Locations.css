@@ -1,5 +1,5 @@
 .locationMain{
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(240, 240, 240);
     height: 80vh;
 }
 .content{
@@ -10,3 +10,5 @@
     flex-wrap: wrap;
     margin-top: 2%;
 }
+
+  

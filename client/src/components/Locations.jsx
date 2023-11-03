@@ -31,7 +31,11 @@ export default function Locations() {
             });
             if (response.ok){
                 let data = await response.json();
-                setLocationData(data);
+                if (data.message){
+                    return;
+                } else {
+                    setLocationData(data);
+                }
             } else {
                 alert('something went wrong fetching your location data :(')
             }
@@ -43,7 +47,7 @@ export default function Locations() {
     useEffect(() => {
         getUserName();
         getLocationData();
-    },[])
+    }, [])
 
     return (
         <>
@@ -51,12 +55,17 @@ export default function Locations() {
                 <div className='content'>
                     <h1>{userName}'s report for <span>{currentDate.format('dddd, MMM D')}</span></h1>
                     <div className='cardContainer'>
-                        {locationData.map((el)=>{
-                            return <Surfcard key={el.id} title={el.title} description={el.description} id={el.id}/>
-                        })}
+                        {locationData.length === 0 ? (
+                            <h4>No locations yet :/</h4>
+                        ) : (
+                            locationData.map((el) => (
+                                <Surfcard key={el.id} title={el.title} description={el.description} id={el.id} />
+                            ))
+                        )}
                     </div>
                 </div>
             </div>
         </>
+
     );
 }

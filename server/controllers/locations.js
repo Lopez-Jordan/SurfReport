@@ -60,9 +60,7 @@ router.post('/api/locations', async (req, res) => {
             if (req.body.description && req.body.description !== currLocation.description) {
                 locationUpdates.description = req.body.description;
             }
-            if (req.body.stars && req.body.stars !== currLocation.stars) {
-                locationUpdates.stars = req.body.stars;
-            }
+            locationUpdates.stars = currLocation.stars;
             const updatedLocation = await currLocation.update(locationUpdates);
             res.status(200).json(updatedLocation);
         } catch (error) {
