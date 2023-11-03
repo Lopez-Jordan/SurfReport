@@ -40,8 +40,11 @@ h2{
 
 }
 
-
 @media (max-width: 768px) {
+    .secondaryMain{
+        height: 65vh;
+
+    }
     .container{
         flex-direction: column-reverse;
     }
@@ -64,4 +67,10 @@ h2{
         font-size: 14px;
     }
 
+}
+
+@media (max-width: 530px) {
+    .secondaryMain{
+        height: 90vh;
+    }
 }

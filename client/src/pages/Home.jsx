@@ -1,5 +1,5 @@
 import './Home.css';
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Secondary from '../components/Secondary';
 import Locations from '../components/Locations';
 import { LogInContext } from "../App";

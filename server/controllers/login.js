@@ -38,7 +38,7 @@ router.post('/api/signup', async (req, res) => {
             req.session.save(() => {
                 req.session.UserId = newUser.id;
                 req.session.loggedIn = true;
-                req.session.name = existingUser.name;
+                req.session.name = newUser.name;
                 res.status(200).json(newUser);
             });
         }

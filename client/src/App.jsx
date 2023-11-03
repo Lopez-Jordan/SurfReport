@@ -1,12 +1,22 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const LogInContext = createContext();
 
 export default function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedLoginStatus = localStorage.getItem('loggedIn');
+    if (storedLoginStatus) {
+      setLoggedIn(storedLoginStatus === 'true');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('loggedIn', loggedIn);
+  }, [loggedIn]);
 
   return (
     <>
@@ -15,9 +25,8 @@ export default function App() {
         <Outlet />
       </LogInContext.Provider>
     </>
-  )
+  );
 }
-
 
 
 
