@@ -1,8 +1,12 @@
 import './Home.css';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Secondary from '../components/Secondary';
+import Locations from '../components/Locations';
+import { LogInContext } from "../App";
 
 export default function Home() {
+
+    const [loggedIn, setLoggedIn] = useContext(LogInContext);
 
     return (
         <>
@@ -12,6 +16,9 @@ export default function Home() {
                 ever leaving the house.</p>
             </div>
             <Secondary />
+            {(loggedIn) && 
+                <Locations />
+            }
         </>
 
     )

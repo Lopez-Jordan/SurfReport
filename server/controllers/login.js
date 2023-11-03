@@ -6,7 +6,10 @@ const { User } = require('../models');
 router.get('/api/login', async (req, res) => {
     try {
         if (req.session.loggedIn){
-            res.status(200).json({loggedIn: true});
+            res.status(200).json({
+                loggedIn: true,
+                name: req.session.name
+            });
         } else {
             res.status(200).json({loggedIn: false});
         }
@@ -35,6 +38,7 @@ router.post('/api/signup', async (req, res) => {
             req.session.save(() => {
                 req.session.UserId = newUser.id;
                 req.session.loggedIn = true;
+                req.session.name = existingUser.name;
                 res.status(200).json(newUser);
             });
         }
@@ -62,6 +66,7 @@ router.post('/api/login', async (req,res) =>{
             req.session.save(() => {
                 req.session.UserId = existingUser.id;
                 req.session.loggedIn = true;
+                req.session.name = existingUser.name;
                 res.status(200).json({ user: existingUser });
             });
         } else {

@@ -11,7 +11,6 @@ export default function Secondary() {
             lon: 14.3,
             zoom: -2,
         };
-        
         windyInit(options, windyAPI => {
             const { map } = windyAPI;
             L.popup()

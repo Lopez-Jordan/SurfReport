@@ -4,8 +4,6 @@ import { createContext, useState } from 'react';
 
 export const LogInContext = createContext();
 
-
-
 export default function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);

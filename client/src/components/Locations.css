@@ -1,0 +1,12 @@
+.locationMain{
+    background-color: rgb(212, 212, 212);
+    height: 80vh;
+}
+.content{
+    padding: 5%;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2%;
+}
