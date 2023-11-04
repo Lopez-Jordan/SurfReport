@@ -20,14 +20,6 @@ Location.init(
       allowNull: true,
       unique: false,
     },
-    stars: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 5,
-      },
-    },
     lat: {
       type: DataTypes.DOUBLE,
       allowNull: true,

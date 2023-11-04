@@ -8,8 +8,25 @@ export default function Surfcard({ title, description, id }) {
     const [updateTitle, setUpdateTitle] = useState(title);
     const [updateDescription, setUpdateDescription] = useState(description);
 
-    const handleUpdate = async () => {
-        alert(`${updateTitle} and ${updateDescription}`)
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        let response = await fetch(`/api/locations/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: updateTitle,
+                description: updateDescription
+            }),
+        });
+        if (response.ok){
+            alert('successful update!')
+            window.location.reload();
+        }
+        else{
+            alert('oops');
+        }
     }
 
     const handleDelete = async () => {

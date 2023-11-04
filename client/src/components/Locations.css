@@ -2,6 +2,15 @@
     background-color: rgb(240, 240, 240);
     height: 80vh;
 }
+.headerLocationSmall{
+    color: rgb(45, 189, 141);
+    font-weight: 700;
+    font-size: 21px;
+}
+.headerLocationLarge{
+    margin-top: 16px;
+    font-size: 26px;
+}
 .content{
     padding: 5%;
 }

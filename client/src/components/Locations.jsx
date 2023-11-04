@@ -53,7 +53,8 @@ export default function Locations() {
         <>
             <div className='locationMain'>
                 <div className='content'>
-                    <h1>{userName}'s report for <span>{currentDate.format('dddd, MMM D')}</span></h1>
+                    <h3 className='headerLocationSmall'>{userName}'s Profile</h3>
+                    <h2 className='headerLocationLarge'>Surf Conditions - {currentDate.format('dddd, MMM D')}</h2>
                     <div className='cardContainer'>
                         {locationData.length === 0 ? (
                             <h4>No locations yet :/</h4>
