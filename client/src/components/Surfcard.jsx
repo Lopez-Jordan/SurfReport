@@ -9,28 +9,46 @@ export default function Surfcard({ title, description, id }) {
     const [updateDescription, setUpdateDescription] = useState(description);
 
     const handleUpdate = async (e) => {
-        e.preventDefault();
-        let response = await fetch(`/api/locations/${id}`, {
-            method: "PUT",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: updateTitle,
-                description: updateDescription
-            }),
-        });
-        if (response.ok){
-            alert('successful update!')
-            window.location.reload();
-        }
-        else{
-            alert('oops');
+        try{
+            e.preventDefault();
+            let response = await fetch(`/api/locations/${id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: updateTitle,
+                    description: updateDescription
+                }),
+            });
+            if (response.ok){
+                alert('successful update!')
+                window.location.reload();
+            }
+            else{
+                alert('something went wrong, try again');
+            }
+        } catch (error) {
+            console.error(error)
         }
     }
 
-    const handleDelete = async () => {
-        // TODO: popup modal with info to update
+    const handleDelete = async (e) => {
+        try{
+            e.preventDefault();
+            let response = await fetch(`/api/locations/${id}`, {
+                method: "DELETE",
+            });
+            if (response.ok){
+                alert('successful deletion!')
+                window.location.reload();
+            }
+            else{
+                alert('something went wrong, try again');
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
 
