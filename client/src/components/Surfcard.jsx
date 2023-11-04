@@ -22,7 +22,6 @@ export default function Surfcard({ title, description, id }) {
                 }),
             });
             if (response.ok){
-                alert('successful update!')
                 window.location.reload();
             }
             else{
@@ -34,31 +33,39 @@ export default function Surfcard({ title, description, id }) {
     }
 
     const handleDelete = async (e) => {
-        try{
-            e.preventDefault();
-            let response = await fetch(`/api/locations/${id}`, {
-                method: "DELETE",
-            });
-            if (response.ok){
-                alert('successful deletion!')
-                window.location.reload();
+        e.preventDefault();
+        
+        const shouldDelete = window.confirm("Are you sure you want to delete?");
+    
+        if (shouldDelete) {
+            try {
+                let response = await fetch(`/api/locations/${id}`, {
+                    method: "DELETE",
+                });
+                if (response.ok) {
+                    alert('Successful deletion!');
+                    window.location.reload();
+                } else {
+                    alert('Something went wrong, try again');
+                }
+            } catch (error) {
+                console.error(error);
             }
-            else{
-                alert('something went wrong, try again');
-            }
-        } catch (error) {
-            console.error(error)
         }
     }
-
-
+    
     return (
         <>
             <div className="cardDiv">
-                <h4 className='headerCard'>{title}</h4>
+                <div className='headerDiv'>
+                    <h4 className='headerCard'>{title}</h4>
+                    <div className='place'></div>
+                    <div className='twoButtons'>
+                        <button style={{fontSize: '16px'}} onClick={() => setModalOpen(true)}><FaRegEdit /></button>
+                        <button style={{fontSize: '16px', marginLeft: '10px'}} onClick={handleDelete}><FaRegTrashAlt /></button>
+                    </div>
+                </div>
                 <p className='paraCard'>{description}</p>
-                <button onClick={handleDelete}><FaRegTrashAlt /></button>
-                <button onClick={() => setModalOpen(true)}><FaRegEdit /></button>
             </div>
 
             {modalOpen && (
@@ -67,11 +74,16 @@ export default function Surfcard({ title, description, id }) {
                         <span className="close-button" onClick={() => setModalOpen(false)}>
                             &times;
                         </span>
-                        <h3>Update Form</h3>
-                        <form onSubmit={handleUpdate}>
-                            <input onChange={(e) => setUpdateTitle(e.target.value)} type="text" className="form-input" value={updateTitle} />
-                            <textarea onChange={(e) => setUpdateDescription(e.target.value)} className="form-input" placeholder="Description" value={updateDescription}></textarea>
-                            <button type="submit">update</button>
+                        <form className='modalForm' onSubmit={handleUpdate}>
+                            <div className='inputFlex'>
+                                <span className='asteric'>*</span>
+                                <input onChange={(e) => setUpdateTitle(e.target.value)} type="text" className="modalInput" value={updateTitle} />
+                            </div>
+                            <div className='inputFlex'>
+                                <span className='asteric'>*</span>
+                                <textarea onChange={(e) => setUpdateDescription(e.target.value)} className="modalTextarea" placeholder="Description" value={updateDescription}></textarea>
+                            </div>
+                            <button className="modalButton" type="submit">update</button>
                         </form>
                     </div>
                 </div>

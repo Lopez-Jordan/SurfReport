@@ -7,6 +7,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 200px;
 }
+.headerDiv{
+  display: flex;
+  justify-content: space-between;
+}
+.place{
+  width: 20px;
+}
 .headerCard{
   color: rgb(45, 189, 141);
   font-weight: 00;
@@ -21,6 +28,11 @@
   border: none;
   cursor: pointer;
 }
+
+
+
+/* MODALS /////////////////////////////////////////////// */
+
 
 .modal-overlay {
   display: none;
@@ -38,10 +50,16 @@
 
 .modal {
   background: white;
-  width: 300px;
-  padding: 20px;
+  width: 20%;
+  padding: 16px;
   border-radius: 5px;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modalForm{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 }
 
 .close-button {
@@ -50,7 +68,73 @@
   font-size: 20px;
 }
 
-.form-input {
-  width: 100%;
-  margin: 10px 0;
+.inputFlex{
+  display: flex;
+  margin-bottom: 5%;
+}
+.asteric{
+  margin-right: 5px;
+  position: relative;
+  top: 10px;
+  color: red;
+}
+
+.modalInput{
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1.5px solid black;
+  color: black;
+  margin-bottom: 18px;
+  font-size: 18px;
+  height: 2rem;
+}
+.modalInput:focus{
+  outline: none;
+  border-bottom: 1.5px solid aquamarine;
+}
+.modalInput::placeholder{
+  color: black;
+  font-size: 16px;
+}
+
+
+.span{
+  font-size: 16px;
+  color:rgb(45, 189, 141);
+  margin-left: 5%;
+
+}
+
+.modalTextarea {
+  border-top: none;
+  padding-bottom: 5px;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1.5px solid black;
+  color: black;
+  margin-bottom: 18px;
+  font-size: 18px;
+  height: 1.5rem;
+}
+
+.modalTextarea:focus{
+  outline: none;
+  border-bottom: 1.5px solid aquamarine;
+}
+
+.modalButton{
+  color: black;
+  font-size: 16px;
+  width: 30%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: aquamarine;
+  cursor: pointer;
+  border: 1.5px solid aquamarine;
+  box-shadow: 3px 3px 0 black;
+
+}
+.modalButton:hover{
+  box-shadow: none;
 }

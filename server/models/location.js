@@ -20,6 +20,11 @@ Location.init(
       allowNull: true,
       unique: false,
     },
+    geoName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false
+    },
     lat: {
       type: DataTypes.DOUBLE,
       allowNull: true,
