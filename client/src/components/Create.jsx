@@ -8,20 +8,21 @@ export default function CreateButton ({ refetch, setRefetch}) {
     const [description, setDescription] = useState('');
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
-    const [lat, setLat] = useState(null);
-    const [long, setLong] = useState(null);
 
-    const setCoordinates = async () => {
+    const setCoordinates = async (currCity, currCountry) => {
         try {
-            let response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${city}&country=${country}`, {
+            alert(`${currCity}, ${currCountry}`)
+            let response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${currCity}&country=${currCountry}`, {
                 method: "GET",
                 headers: {
                     'X-Api-Key': 'hlacNj0HiuchakfyKYAmqQ==nlPj4sw4zM0v9YwN'
                 },
             })
             let data = await response.json();
-            setLat(data[0].latitude);
-            setLong(data[0].longitude);
+            let coordinates = [data[0].latitude, data[0].longitude];
+
+            return coordinates;
+
         } catch (error) {
             console.error(error);
         }
@@ -30,23 +31,30 @@ export default function CreateButton ({ refetch, setRefetch}) {
     const handleNewLocation = async (e) => {
         e.preventDefault();
         try {
-            await setCoordinates();
-            alert(`${title}, ${description}, ${city}, ${country}, ${lat}, ${long}`);
+            let coords = await setCoordinates(city, country);
+            let response = await fetch('/api/locations', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    title: title,
+                    description: description,
+                    lat: coords[0],
+                    long: coords[1]
+                })
+            })
+            if (response.ok){
+                console.log(response);
+            } else {
+                console.log("something went wrong :(((")
+            }
 
-            // then 
-            // then post a new location
+            setRefetch(!refetch);
+            setModalOpen(false);
 
-            // setRefetch(!refetch);
-    
-            
-            // setModalOpen(false);
-            // window.location.reload();
             setTitle('');
             setDescription('')
             setCity('');
             setCountry('');
-
-
         } catch (error) {
             console.error(error);
         }
