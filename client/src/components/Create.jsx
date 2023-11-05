@@ -11,7 +11,6 @@ export default function CreateButton ({ refetch, setRefetch}) {
 
     const setCoordinates = async (currCity, currCountry) => {
         try {
-            alert(`${currCity}, ${currCountry}`)
             let response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${currCity}&country=${currCountry}`, {
                 method: "GET",
                 headers: {
@@ -20,9 +19,7 @@ export default function CreateButton ({ refetch, setRefetch}) {
             })
             let data = await response.json();
             let coordinates = [data[0].latitude, data[0].longitude];
-
             return coordinates;
-
         } catch (error) {
             console.error(error);
         }
