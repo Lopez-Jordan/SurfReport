@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import './Create.css';
 
-export default function CreateButton ({ refetch, setRefetch}) {
+export default function CreateButton () {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [title, setTitle] = useState('');
@@ -41,13 +41,11 @@ export default function CreateButton ({ refetch, setRefetch}) {
             })
             if (response.ok){
                 console.log(response);
+                window.location.reload();
             } else {
                 console.log("something went wrong :(((")
             }
-
-            setRefetch(!refetch);
             setModalOpen(false);
-
             setTitle('');
             setDescription('')
             setCity('');

@@ -80,30 +80,33 @@ export default function Surfcard({ title, description, id, lat, long }) {
             let response = await fetch('https://api.windy.com/api/point-forecast/v2', {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                lat: latitude,
-                lon: longitude,
-                model: "gfsWave",
-                parameters: ["waves"],
-                key: "Eo25N5d4bTDvvFyP1JteaSMFMbFV9giA"
+                    lat: latitude,
+                    lon: longitude,
+                    model: "gfsWave",
+                    parameters: ["waves"],
+                    key: "Eo25N5d4bTDvvFyP1JteaSMFMbFV9giA"
                 })
             });
-                const data = await response.json();
-            
+            const data = await response.json();
+
+            if (response.ok) {
                 const newWaveHeight = avgWave(data["waves_height-surface"]) * 3.28084;
                 const newWavePeriod = avgWave(data["waves_period-surface"]);
                 const newWaveDirection = degreesToCardinal(avgWave(data["waves_direction-surface"]));
-            setWaveHeight(newWaveHeight);
-            setWavePeriod(newWavePeriod);
-            setWaveDirection(newWaveDirection);
-
+                setWaveHeight(newWaveHeight);
+                setWavePeriod(newWavePeriod);
+                setWaveDirection(newWaveDirection);
+            } else {
+                alert("Something went wrong :/")
+            }
         } catch (error) {
             console.error(error);
         }
     }
-    
+
 
 
     useEffect(() => {

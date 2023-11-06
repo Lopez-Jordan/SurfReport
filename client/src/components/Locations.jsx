@@ -1,15 +1,17 @@
 import './Locations.css'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import dayjs from 'dayjs';
 import Surfcard from './Surfcard';
 import CreateButton from './Create';
+import { LogInContext } from "../App";
+
 
 
 export default function Locations() {
 
+    const [loggedIn, setLoggedIn] = useContext(LogInContext);
     const [userName, setUserName] = useState('');
     const [locationData, setLocationData] = useState([]);
-    const [refetch, setRefetch] = useState(false);
 
     const currentDate = dayjs();
 
@@ -50,7 +52,7 @@ export default function Locations() {
     useEffect(() => {
         getUserName();
         getLocationData();
-    }, [refetch])
+    }, [loggedIn])
 
     return (
         <>
@@ -58,7 +60,7 @@ export default function Locations() {
                 <div className='content'>
                     <h3 className='headerLocationSmall'>{userName}'s Profile</h3>
                     <h2 className='headerLocationLarge'>Surf Conditions - <span className='daySpan'>{currentDate.format('dddd, MMM D')}</span></h2>
-                    <CreateButton refetch={refetch} setRefetch={setRefetch}/>
+                    <CreateButton/>
                     <div className='cardContainer'>
                         {locationData.length === 0 ? (
                             <h4>No locations yet :/</h4>
