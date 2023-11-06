@@ -3,25 +3,29 @@
     height: 80vh;
 }
 .headerLocationSmall{
-    color: rgb(45, 189, 141);
-    font-weight: 700;
-    font-size: 21px;
+    font-weight: 500;
+    font-size: 18px;
 }
-.headerLocationLarge{
-    margin-top: 16px;
-    font-size: 26px;
-}
+
 .content{
     padding: 5%;
 }
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 2%;
+    margin-top: 3%;
 }
-.daySpan{
-    padding-bottom: 6px;
-    border-bottom: 1.5px solid black;
+
+.dayDiv{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.flexDiv{
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 
 .modal-overlay {

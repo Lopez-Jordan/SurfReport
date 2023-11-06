@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { FaSearchLocation } from 'react-icons/fa';
+
 import './Create.css';
 
 export default function CreateButton () {
@@ -57,7 +59,7 @@ export default function CreateButton () {
 
     return (
         <>
-            <button onClick={() => setModalOpen(true)}>Create</button>
+            <button className="faLocation" onClick={() => setModalOpen(true)}><FaSearchLocation /></button>
             {modalOpen && (
                 <div className="modal-overlay">
                     <div className="modal">
@@ -69,8 +71,6 @@ export default function CreateButton () {
                             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="description goes here" />
                             <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="city goes here" />
                             <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="country goes here" />
-
-
                             <button type="submit" >Create</button>
                         </form>
                     </div>

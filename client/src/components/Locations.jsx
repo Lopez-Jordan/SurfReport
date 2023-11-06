@@ -58,12 +58,14 @@ export default function Locations() {
         <>
             <div className='locationMain'>
                 <div className='content'>
-                    <h3 className='headerLocationSmall'>{userName}'s Profile</h3>
-                    <h2 className='headerLocationLarge'>Surf Conditions - <span className='daySpan'>{currentDate.format('dddd, MMM D')}</span></h2>
-                    <CreateButton/>
+                    <div className='flexDiv'>
+                    <h3 className='headerLocationSmall'>{userName}'s report</h3>
+                        <p className='dayDiv'>{currentDate.format('dddd, MMM D')}</p>
+                        <CreateButton/>
+                    </div>
                     <div className='cardContainer'>
                         {locationData.length === 0 ? (
-                            <h4>No locations yet :/</h4>
+                            <p style={{marginTop: '40px'}}>Click on the search icon to generate a custom surf report!</p>
                         ) : (
                             locationData.map((el) => (
                                 <Surfcard key={el.id} title={el.title} description={el.description} id={el.id} lat={el.lat} long={el.long} />

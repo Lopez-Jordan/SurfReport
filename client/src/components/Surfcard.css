@@ -1,43 +1,87 @@
 .cardDiv {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 200px;
-}
-.headerDiv{
+  background-color: #f5f5f5;
+  border: 1.5px solid #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 250px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-}
-.place{
-  width: 20px;
-}
-.headerCard{
-  color: rgb(45, 189, 141);
-  font-weight: 00;
-  font-size: 18px;
-}
-.paraCard{
-  margin-top: 6%;
+  height: 100%;
+  text-align: left;
+  margin-right: 1.5%;
+  margin-bottom: 1.5%;
+
+
 }
 
-.good, .danger{
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.headerCard {
+  color: #2dbd8d;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.twoButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.good,
+.danger {
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 4px;
+  font-size: 16px;
+  color: #666;
+  transition: background-color 0.2s;
 }
-.danger:hover{
-  background-color: rgb(255, 154, 154);
+
+.good:hover {
+  background-color: #c0e6ff;
 }
-.good:hover{
-  background-color: rgb(192, 230, 255);
+
+.danger:hover {
+  background-color: #ff9a9a;
 }
-.surfData{
-  font-weight: bolder;
+
+.paraCard {
+  margin: 0;
+  font-size: smaller;
 }
+
+.surfInfo {
+  background-color: #dfdfdf;
+  margin-top: 1%;
+  margin-bottom: 10%;
+  border-radius: 6px;
+  text-align: left;
+  width: fit-content;
+  padding: 5px
+}
+
+.surfData {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+.surfData1{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 4%;
+}
+.faIcon{
+  font-size: smaller;
+}
+
 
 
 /* MODALS /////////////////////////////////////////////// */

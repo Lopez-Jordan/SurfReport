@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
+import { FaRegEdit, FaRegTrashAlt, FaRegClock, FaWater, FaRegCompass } from 'react-icons/fa';
 import './Surfcard.css';
 import { LogInContext } from "../App";
 
@@ -111,28 +111,36 @@ export default function Surfcard({ title, description, id, lat, long }) {
 
     useEffect(() => {
         getWaveData(lat, long);
-    },[loggedIn]);
+    }, [loggedIn]);
 
     return (
         <>
             <div className="cardDiv">
-                <div className='headerDiv'>
-                    <h4 className='headerCard'>{title}</h4>     {/* title */}
-                    <div className='place'></div>
-                    <div className='twoButtons'>
-                        <button className="good" style={{fontSize: '16px'}} onClick={() => setModalOpen(true)}><FaRegEdit /></button>      {/* edit */}
-                        <button className="danger" style={{fontSize: '16px', marginLeft: '10px'}} onClick={handleDelete}><FaRegTrashAlt /></button>     {/* delete */}
+                <div className="headerDiv">
+                    <h4 className="headerCard">{title}</h4>
+                    <div className="twoButtons">
+                        <button className="good" onClick={() => setModalOpen(true)}>
+                            <FaRegEdit />
+                        </button>
+                        <button className="danger" onClick={handleDelete}>
+                            <FaRegTrashAlt />
+                        </button>
                     </div>
                 </div>
-                <p className='paraCard'>{description}</p>   {/* description */}
-
-
-                <p>Wave height: <span className='surfData'>{Math.floor(waveHeight)}-{Math.floor(waveHeight) + 1} ft</span></p>      
-                <p>period: <span className='surfData'>{Math.floor(wavePeriod)} sec</span></p>         
-                <p>direction: <span className='surfData'>{waveDirection}</span></p>        
-
-
+                <div className="surfInfo">
+                    <p className="surfData1">{Math.floor(waveHeight)}-{Math.floor(waveHeight) + 1} ft <FaWater className='faIcon'/></p>
+                    <p className="surfData">{Math.floor(wavePeriod)} sec <FaRegClock className='faIcon' /></p>
+                    <p className="surfData">{waveDirection} <FaRegCompass className='faIcon' /></p>
+                </div>
+                <p className="paraCard">{description}</p>
             </div>
+
+
+
+
+
+
+
 
             {modalOpen && (
                 <div className="modal-overlay">
