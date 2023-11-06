@@ -23,12 +23,23 @@
   margin-top: 6%;
 }
 
-.cardDiv button {
+.good, .danger{
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 4px;
 }
-
+.danger:hover{
+  background-color: rgb(255, 130, 130);
+  zoom: 1.1;
+}
+.good:hover{
+  background-color: aquamarine;
+  zoom: 1.1;
+}
+.surfData{
+  font-weight: bolder;
+}
 
 
 /* MODALS /////////////////////////////////////////////// */

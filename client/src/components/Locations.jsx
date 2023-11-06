@@ -64,7 +64,7 @@ export default function Locations() {
                             <h4>No locations yet :/</h4>
                         ) : (
                             locationData.map((el) => (
-                                <Surfcard key={el.id} title={el.title} description={el.description} id={el.id} />
+                                <Surfcard key={el.id} title={el.title} description={el.description} id={el.id} lat={el.lat} long={el.long} />
                             ))
                         )}
                     </div>
