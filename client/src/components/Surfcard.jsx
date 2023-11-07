@@ -138,17 +138,15 @@ export default function Surfcard({ title, description, id, lat, long }) {
 
             {modalOpen && (
                 <div className="modal-overlay">
-                    <div className="modal">
+                    <div className="modalUpdate">
                         <span className="close-button" onClick={() => setModalOpen(false)}>
                             &times;
                         </span>
                         <form className='modalForm' onSubmit={handleUpdate}>
                             <div className='inputFlex'>
-                                <span className='asteric'>*</span>
                                 <input onChange={(e) => setUpdateTitle(e.target.value)} type="text" className="modalInput" value={updateTitle} />
                             </div>
                             <div className='inputFlex'>
-                                <span className='asteric'>*</span>
                                 <textarea onChange={(e) => setUpdateDescription(e.target.value)} className="modalTextarea" placeholder="Description" value={updateDescription}></textarea>
                             </div>
                             <button className="modalButton" type="submit">update</button>

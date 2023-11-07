@@ -5,6 +5,7 @@
 }
 .twoCols{
     display: flex;
+    background-color: white;
 }
 .loginForm{
     display: flex;
@@ -13,6 +14,7 @@
     justify-content: space-between;
     height: 35%;
     margin-top: 20%;
+    animation: fadeInLeft 1.5s ease; 
 }
 .loginHeader{
     font-family: 'Bebas Neue', sans-serif;

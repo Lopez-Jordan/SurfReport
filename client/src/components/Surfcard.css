@@ -2,7 +2,7 @@
   border: 2px solid #000000;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 0px black;
   width: 250px;
   padding: 15px;
   display: flex;
@@ -12,6 +12,7 @@
   text-align: left;
   margin-right: 1.5%;
   margin-bottom: 1.5%;
+  animation: fadeInLeft 1.5s ease; 
 }
 .paddingDiv{
   background-color: white;
@@ -89,7 +90,6 @@
 
 /* MODALS /////////////////////////////////////////////// */
 
-
 .modal-overlay {
   display: none;
   position: fixed;
@@ -104,12 +104,10 @@
   align-items: center;
 }
 
-.modal {
-  background: white;
-  width: 20%;
-  padding: 16px;
-  border-radius: 5px;
-  box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
+.modalUpdate{
+  width: 30%;
+  padding: 2%;
+  background-color: white;
 }
 
 .modalForm{
@@ -127,12 +125,6 @@
 .inputFlex{
   display: flex;
   margin-bottom: 5%;
-}
-.asteric{
-  margin-right: 5px;
-  position: relative;
-  top: 10px;
-  color: red;
 }
 
 .modalInput{
@@ -164,14 +156,12 @@
 
 .modalTextarea {
   border-top: none;
-  padding-bottom: 5px;
   border-right: none;
   border-left: none;
   border-bottom: 1.5px solid black;
   color: black;
   margin-bottom: 18px;
   font-size: 18px;
-  height: 1.5rem;
 }
 
 .modalTextarea:focus{
@@ -183,14 +173,22 @@
   color: black;
   font-size: 16px;
   width: 30%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   background-color: aquamarine;
   cursor: pointer;
-  border: 1.5px solid aquamarine;
-  box-shadow: 3px 3px 0 black;
+  border: 1px solid aquamarine;
+  box-shadow: 2px 2px 0 black;
 
 }
 .modalButton:hover{
   box-shadow: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .modalUpdate{
+    width: 60%;
+  }
 }

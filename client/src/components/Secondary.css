@@ -1,6 +1,7 @@
 .secondaryMain{
     height: 50vh;
     padding: 5%;
+    background-color: white;
 }
 .container{
     display: flex;
@@ -29,7 +30,7 @@ h2{
     line-height: 1.8;
 }
 #windy {
-    min-height: 50vh; /* Set a minimum height */
+    min-height: 50vh;
     width: 100%;
     flex: 4;
     position: relative;

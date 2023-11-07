@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { LogInContext } from "../App";
 import './LoginSignup.css';
@@ -36,6 +36,10 @@ export default function Signup() {
         setUserName("");
         setPassword("");
     }
+
+    useEffect(() => {
+        window.scrollTo(0,1);
+    }, []);
 
     return (
         <>

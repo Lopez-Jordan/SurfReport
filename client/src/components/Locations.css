@@ -13,7 +13,7 @@
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 .dayDiv{
@@ -22,7 +22,6 @@
 }
 
 .flexDiv{
-    margin-top: 16px;
     display: flex;
     justify-content: space-between;
     align-items: end;

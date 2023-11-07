@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { LogInContext } from "../App";
 import './LoginSignup.css';
@@ -36,7 +36,11 @@ export default function Login () {
         setUserName("");
         setPassword("");
     }
-    
+
+    useEffect(() => {
+        window.scrollTo(0,1);
+    }, []);
+
     return (
         <>
             <div className="twoCols">

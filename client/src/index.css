@@ -4,6 +4,10 @@
   letter-spacing: 0.75px;
   font-family: Montserrat;
 }
+body{
+  background-color: rgb(240, 240, 240);
+
+}
 *::selection {
   background-color: rgb(141, 255, 213); 
 }

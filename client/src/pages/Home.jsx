@@ -17,10 +17,23 @@ export default function Home() {
         <>
             <div className="main">
                 <h1 className="header">Surf Report</h1>
-                <p className='para'>A Surfline inspired, full stack application where users can track the conditions of their favorite surf spots and make informed decisions before ever leaving the house.</p>
+                <div className='para'>
+                    <div className='numberLetter'>
+                        <h4>1</h4>
+                        <p>Login or Signup</p>
+                    </div>
+                    <div className='numberLetter'>
+                        <h4>2</h4>
+                        <p>Choose any coastal city you want a surf report for</p>
+                    </div>
+                    <div className='numberLetter2'>
+                        <h4>3</h4>
+                        <p>Monitor conditions for many locations before you surf!</p>
+                    </div>
+                </div>
             </div>
             <Secondary />
-            {(loggedIn) && 
+            {(loggedIn) &&
                 <Locations />
             }
         </>

@@ -67,15 +67,15 @@ export default function CreateButton () {
                             &times;
                         </span>
                         <form className='modalForm' onSubmit={handleNewLocation}>
-                            <label>Location name</label>
-                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Santa Cruz" />
-                            <label>Description</label>
-                            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="this place has long waves!" />
-                            <label>City</label>
-                            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Santa Cruz" />
-                            <label><span className='astericNew'>*</span>Country <span className="countryCode">(3 letter code)</span></label>
-                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="USA" />
-                            <button type="submit" >Create</button>
+                            <label className="createLabel">Name</label>
+                            <input className="inputCreate" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="ie: Salt Creek" />
+                            <label className="createLabel">Description</label>
+                            <input className="inputCreate" type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="ie: love this spot!" />
+                            <label className="createLabel"><span className='astericNew'>*</span>City <span className="countryCode">(of surf location)</span></label>
+                            <input className="inputCreate" type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="ie: Santa Cruz" />
+                            <label className="createLabel"><span className='astericNew'>*</span>Country <span className="countryCode">(3 letter code)</span></label>
+                            <input className="inputCreate" type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="ie: USA" />
+                            <button className="modalButton" type="submit" >Create</button>
                         </form>
                     </div>
                 </div>
