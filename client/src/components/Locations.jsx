@@ -59,7 +59,7 @@ export default function Locations() {
             <div className='locationMain'>
                 <div className='content'>
                     <div className='flexDiv'>
-                    <h3 className='headerLocationSmall'>{userName}'s report</h3>
+                        <h3 className='headerLocationSmall'>{userName}'s report</h3>
                         <p className='dayDiv'>{currentDate.format('dddd, MMM D')}</p>
                         <CreateButton/>
                     </div>

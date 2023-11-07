@@ -67,10 +67,14 @@ export default function CreateButton () {
                             &times;
                         </span>
                         <form className='modalForm' onSubmit={handleNewLocation}>
-                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="title goes here" />
-                            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="description goes here" />
-                            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="city goes here" />
-                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="country goes here" />
+                            <label>Location name</label>
+                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Santa Cruz" />
+                            <label>Description</label>
+                            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="this place has long waves!" />
+                            <label>City</label>
+                            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Santa Cruz" />
+                            <label><span className='astericNew'>*</span>Country <span className="countryCode">(3 letter code)</span></label>
+                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="USA" />
                             <button type="submit" >Create</button>
                         </form>
                     </div>

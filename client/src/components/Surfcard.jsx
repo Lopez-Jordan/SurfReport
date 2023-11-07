@@ -128,19 +128,13 @@ export default function Surfcard({ title, description, id, lat, long }) {
                     </div>
                 </div>
                 <div className="surfInfo">
-                    <p className="surfData1">{Math.floor(waveHeight)}-{Math.floor(waveHeight) + 1} ft <FaWater className='faIcon'/></p>
+                    <p className="surfData1">{Math.floor(waveHeight)}-{Math.floor(waveHeight) + 1} ft <FaWater className='faIcon' /></p>
                     <p className="surfData">{Math.floor(wavePeriod)} sec <FaRegClock className='faIcon' /></p>
                     <p className="surfData">{waveDirection} <FaRegCompass className='faIcon' /></p>
                 </div>
                 <p className="paraCard">{description}</p>
+
             </div>
-
-
-
-
-
-
-
 
             {modalOpen && (
                 <div className="modal-overlay">
