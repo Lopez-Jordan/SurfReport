@@ -9,6 +9,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': 'http://localhost:3001',
+
     },
   },
 });
