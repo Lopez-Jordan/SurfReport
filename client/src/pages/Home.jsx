@@ -28,7 +28,7 @@ export default function Home() {
                     </div>
                     <div className='numberLetter2'>
                         <h4>3</h4>
-                        <p>Monitor conditions for many locations before you surf!</p>
+                        <p>Monitor conditions for many locations before you head out!</p>
                     </div>
                 </div>
             </div>

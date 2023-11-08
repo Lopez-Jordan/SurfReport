@@ -11,6 +11,8 @@ export default function App() {
     const storedLoginStatus = localStorage.getItem('loggedIn');
     if (storedLoginStatus) {
       setLoggedIn(storedLoginStatus === 'true');
+    } else {
+      setLoggedIn(storedLoginStatus === 'false');
     }
   }, []);
 

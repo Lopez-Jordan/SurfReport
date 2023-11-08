@@ -16,7 +16,9 @@
     font-family: 'Bebas Neue', sans-serif;
     animation: fadeInLeft 1.5s ease; 
 }
-
+.spanOR{
+    font-size: 12px;
+}
 .para {
     width: 280px;
     padding: 30px;
