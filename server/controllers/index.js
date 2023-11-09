@@ -2,6 +2,10 @@ const router = require('express').Router();
 const loginRoutes = require('./login');
 const locationRoutes = require('./locations');   // still need to import
 
+router.get('/', async (req,res)=>{
+    res.send("hello");
+});
+
 router.use(loginRoutes);
 router.use(locationRoutes);
 
