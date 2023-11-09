@@ -5,8 +5,7 @@
 
 ## Description
 
-Surf Report is a full stack application inspired by Surfline. Here you can create your own surf reports and monitor wind conditions with integrated third party APIs. Feel free
-to create your own account and start exploring!
+Surf Report is a full stack application inspired by Surfline. Here you can create your own surf reports and monitor wind conditions with integrated third party APIs. Feel free to create your own account and start exploring!
 
 ## Usage
 Login or Signup, then click on the Search icon, fill out the form and monitor conditions!

@@ -9,6 +9,7 @@ export default function Login () {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [loggedIn, setLoggedIn] = useContext(LogInContext);
+    const [errorMessage, setErrorMessage] = useState("");
     
     const navigate = useNavigate();
 
@@ -30,7 +31,7 @@ export default function Login () {
             navigate('/');
         } else {
             const errorMessage = await response.text();
-            alert(errorMessage);
+            setErrorMessage(errorMessage);
             setLoggedIn(false);
         }
         setUserName("");
@@ -52,6 +53,7 @@ export default function Login () {
                             <input className="input" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
                             <button className="loginButton" type="submit">Login</button>
                         </form>
+                        {errorMessage && <div style={{color: "red", marginTop: "20px"}}>{errorMessage}</div>}
                         <div className="or">or... <Link to="/signup">signup</Link></div>
                     </div>
                 </div>
