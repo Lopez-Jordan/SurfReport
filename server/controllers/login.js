@@ -28,9 +28,17 @@ router.post('/api/signup', async (req, res) => {
                 name : req.body.name
             }
         });
-        if (existingUser){
-            res.status(400).json({message: 'User already exists with that name'})
-        } else {
+        if (req.body.name == "") {
+            res.status(400).json({error: "You must input a username"})
+        }
+        else if (existingUser){
+            res.status(400).json({error: 'User already exists with that name :/'})
+        }
+        else if (req.body.password === ""){
+            res.status(400).json({error: "You must input a password"})
+
+        }
+        else {
             let newUser = await User.create({
                 name : req.body.name,
                 password : req.body.password
