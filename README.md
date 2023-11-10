@@ -23,7 +23,7 @@ Login or Signup, then click on the Search icon, fill out the form and monitor co
 - CSS
 - Node
 - Express
-- Express Sessions
+- Express Sessions (with Cookies)
 - MySQL (with Sequelize) 
 - Bcrypt (for password hashing)
 - GeoCoding API (converting city names into Latitude and Longitude) [GeoCoding Website](https://api-ninjas.com/api/geocoding)
